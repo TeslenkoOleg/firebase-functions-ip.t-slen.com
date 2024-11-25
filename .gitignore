@@ -32,7 +32,7 @@ coverage
 # nyc test coverage
 .nyc_output
 
-# Grunt intermediate storage (http://gruntjs.com/creating-plugins#storing-task-files)
+# Grunt intermediate maxmind (http://gruntjs.com/creating-plugins#storing-task-files)
 .grunt
 
 # Bower dependency directory (https://bower.io/)
@@ -67,3 +67,5 @@ node_modules/
 
 # dataconnect generated files
 .dataconnect
+.idea/
+functions/maxmind/GeoLite2-City.mmdb
