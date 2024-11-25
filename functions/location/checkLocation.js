@@ -2,14 +2,13 @@
 import { onRequest } from "firebase-functions/https";
 // Load MaxMind databases
 import { cityDB} from "../maxmind/index.js";
-import cors from "cors";
 
-export const checkLocation = onRequest((req, res) => {
-const corsHandler = cors({
-    origin: process.env.ALLOWED_ORIGINS.split(','), // Whitelisted origins
-    methods: ['GET'],
-});
-  corsHandler(req, res, async () => {
+export const checkLocation = onRequest(
+    {
+      cors:[/t-slen\.com$/],
+      timeoutSeconds: 5
+    },
+    (req, res) => {
     const ip = req.query.ip;
     console.log("IP Address: ", ip);
 
@@ -36,5 +35,4 @@ const corsHandler = cors({
       console.error("Error fetching location:", error);
       return res.status(500).json({ error: "Error fetching location data" });
     }
-  });
 });
