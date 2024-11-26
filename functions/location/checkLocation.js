@@ -1,11 +1,11 @@
 'use strict';
 import { onRequest } from "firebase-functions/https";
 // Load MaxMind databases
-import { cityDB} from "../maxmind/index.js";
+import { cityDB } from "../maxmind/index.js";
 
 export const checkLocation = onRequest(
     {
-      cors:[/t-slen\.com$/],
+      cors: process.env.ALLOWED_ORIGINS,
       timeoutSeconds: 5
     },
     (req, res) => {

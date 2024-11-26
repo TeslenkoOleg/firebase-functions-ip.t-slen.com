@@ -5,7 +5,7 @@ import axios from "axios";
 
 export const quickCheckSsl = onRequest(
     {
-      cors:[/t-slen\.com$/],
+      cors: process.env.ALLOWED_ORIGINS,
       timeoutSeconds: 5
     },
     async (req, res) => {
